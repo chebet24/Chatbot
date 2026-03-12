@@ -342,8 +342,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         if update.message:
             await update.message.reply_text("❌ Something went wrong. Please try again.")
 
-
-async def run_telegram(engine: ChatEngine) -> None:
+def run_telegram(engine: ChatEngine) -> None:
     """
     Runs the Telegram bot via long polling.
     """
@@ -409,6 +408,6 @@ if __name__ == "__main__":
         mode = sys.argv[1].strip().lower()
 
     if mode == "telegram":
-        asyncio.run(run_telegram(engine))
+        arun(run_telegram(engine))
     else:
         asyncio.run(run_terminal(engine))
